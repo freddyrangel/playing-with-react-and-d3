@@ -1,5 +1,4 @@
 var React = require('react');
-var d3    = require('d3');
 var uuid  = require('node-uuid');
 
 var DataCircles = React.createClass({

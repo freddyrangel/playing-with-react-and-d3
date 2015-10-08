@@ -1,6 +1,6 @@
 var React       = require('react');
-var ScatterPlot = require('./Table.jsx');
 var d3          = require('d3');
+var ScatterPlot = require('./ScatterPlot.jsx');
 
 var App = React.createClass({
   render: function() {
