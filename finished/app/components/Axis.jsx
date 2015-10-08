@@ -1,4 +1,5 @@
 var React = require('react');
+var d3    = require('d3');
 
 var Axis = React.createClass({
   render: function() {
