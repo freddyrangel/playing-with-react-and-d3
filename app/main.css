@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+.controls button {
+  display: block;
+  margin: 4em auto 4em auto;
+  background-color: 'aquawhite';
+}
