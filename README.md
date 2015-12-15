@@ -10,7 +10,7 @@ Anyone working in modern client-side JavaScript has most likely heard of React a
 
 React helps developers build applications by helping manage application state. It's simple, declarative, and composable. React is not a traditional MVC framework. React is really only interested in building user interfaces. Some have called it the "V" in MVC, but that's a little misleading. React sees the world much differently from traditional MVC frameworks. As more application logic started moving toward the client, many application developers wanted to apply some kind of structure to their front-end JavaScript. So we started applying a paradigm that we understood from the server (MVC) and apply it to the browser. The problem with this approach is that the browser environment is very different from the server. React acknowledges that client-side applications are really a collection of UI components that should react to events like user interaction.
 
-React encourages building applications out of self-contained, reusable components that only care about a small piece of the UI. Many other frameworks attempt to do this such as Angular. React is different in that it enforces uni-directional data flow from parent component to child component. This makes debugging much easier. Most time spend working on applications is spent on debugging, so while React is more verbose that other libraries/frameworks, in the end it saves a lot of time. In a framework like Angular, if there's a bug it can be hard to figure out where it's coming from: is it in the view? The model? The controller? The directive? The directive controller? Data in Angular flows in many different directions, making it hard to reason about that state of your application. In React, when there is a bug, you can quickly determine where the bug originated from, since data only moves in one direction. If there is a bug, you just trace the direction of the data until you find the culprit.
+React encourages building applications out of self-contained, reusable components that only care about a small piece of the UI. Many other frameworks attempt to do this such as Angular. React is different in that it enforces uni-directional data flow from parent component to child component. This makes debugging much easier. Most time spent working on applications is spent on debugging, so while React is more verbose that other libraries/frameworks, in the end it saves a lot of time. In a framework like Angular, if there's a bug it can be hard to figure out where it's coming from: is it in the view? The model? The controller? The directive? The directive controller? Data in Angular flows in many different directions, making it hard to reason about that state of your application. In React, when there is a bug, you can quickly determine where the bug originated from, since data only moves in one direction. If there is a bug, you just trace the direction of the data until you find the culprit.
 
 ## What is D3?
 
@@ -26,11 +26,11 @@ Also, once we create a chart component, we can reuse that chart with different d
 
 ## How use React and D3?
 
-D3, like React, is declarative. Unlike React, D3 used data binding, while React uses a uni-directional data flow paradigm. Getting them to work together takes a bit of work but the strategy is fairly simple: since SVG lives in the DOM, let React handle displaying SVG representations of the data, while letting D3 handle all the math required to render the data.
+D3, like React, is declarative. Unlike React, D3 uses data binding, while React uses a uni-directional data flow paradigm. Getting them to work together takes a bit of work but the strategy is fairly simple: since SVG lives in the DOM, let React handle displaying SVG representations of the data, while letting D3 handle all the math required to render the data.
 
 We're going to go through a simple example of generating a random list of X-Y coordinates and displaying them on a ScatterPlot chart. A finished example is provided for you under the "finished" directory but you can follow along under "unfinished". I've gone through the trouble of doing all the setup for you. The build will automatically be created from "unfinished/app/index.jsx"
 
-Let's start by creating a simple "Hello World!" React component. Create a file under "components" names "App.jsx"
+Let's start by creating a simple "Hello World!" React component. Create a "components" directory in "unfinished/app" and add a file named "App.jsx". The file should appear as "unfinished/app/components/App.jsx"
 
 ```
 var React = require('react');
@@ -45,7 +45,7 @@ module.exports = App;
 
 ```
 
-There are a couple of things that need to be pointed out. First, we're calling `createClass` on react and passing it an object. There are several methods you can pass to React that it knows what to do with but the heart of a React component is the `render` function. `render` Tell React how the component should look like once it's rendered. If you're coming from Angular or Ember this might look weird, the fact that we're putting HTML directly into our JS code. This goes against everything we've learned about unobtrusive JavaScript. That way of thinking makes sense in other contexts, but let's not get too dogmatic about it. Everything is different in React, and for good reason. React sees HTML and client-side JavaScript as fundamentally bonded together. They're both concerned about one thing: rendering UI components to the user. They simply cannot be seperated without losing the ability to see what your component is going at a glance. The beauty of this approach is that you can describe exactly what your component will look like when it's rendered.
+There are a couple of things that need to be pointed out. First, we're calling `createClass` on react and passing it an object. There are several methods you can pass to React that it knows what to do with but the heart of a React component is the `render` function. `render` tells React how the component should look like once it's rendered. If you're coming from Angular or Ember this might look weird, the fact that we're putting HTML directly into our JS code. This goes against everything we've learned about unobtrusive JavaScript. That way of thinking makes sense in other contexts, but let's not get too dogmatic about it. Everything is different in React, and for good reason. React sees HTML and client-side JavaScript as fundamentally bonded together. They're both concerned about one thing: rendering UI components to the user. They simply cannot be seperated without losing the ability to see where your component is going at a glance. The beauty of this approach is that you can describe exactly what your component will look like when it's rendered.
 
 Also keep in mind that this is only possible with JSX, which will translate HTML elements into React functions that will render the HTML to the page.
 
@@ -53,7 +53,7 @@ Now let's move on and mount our component to the DOM. Open up "index.jsx"
 
 ```
 var React = require('react');
-var App   = require('./components/App');
+var App   = require('./components/App.jsx');
 var css   = require('./main.css')
 
 var appNode = document.createElement('div');
@@ -109,7 +109,7 @@ module.exports = App;
 
 `componentWillMount` is another React lifecycle function which will be called before the initial rendering of the component occurs. Inside of `componentWillMount` we're creating 50 random X-Y coordinates within a certain random range using D3's `range` method, which provides an array of values from 0 up to but excluding the value provided. So in this case, `d3.range(settings.numDataPoints)` will return an array `[0 ... 49]`. We could use a for-loop here, but d3's range method works very nicely here.
 
-Let's talk about `this.setState`. If `render` is the heard of a React component, `setState` is the brains of a component. `setState` explicitly tells React that we're changing some kind of state, triggering a rerender of the component and it's children. This essentially turns out UI components into state machines.  
+Let's talk about `this.setState`. If `render` is the head of a React component, `setState` is the brains of a component. `setState` explicitly tells React that we're changing some kind of state, triggering a rerender of the component and it's children. This essentially turns out UI components into state machines.  
 
 Inside of `setState`, we're passing an object with `data` set to the `randomData` we just generated. This means that if we want to retrieve the state of out application, we only have to call `this.state.whateverStateWereLookingFor`. In this case, we can retrieve the randomData by calling `this.state.data`
 
@@ -152,7 +152,7 @@ Let's get started with the ScatterPlot component. Create a file `unfinished/app/
 
 ```
 var React       = require('react');
-var DataCircles = require('./DataCircles');
+var DataCircles = require('./DataCircles.jsx');
 
 var ScatterPlot = React.createClass({
   render: function() {
@@ -196,7 +196,7 @@ Let's talk about D3 scales. This is where D3 shines. Scales take care of doing a
 
 We're creating the scales for X and Y coordinates here so we can pass it in to other components such as an X and Y axis. 
 
-As a side note, the plural of axis is axis, so when we get to X and Y axis it might get a little confusing whether I'm referring to one or two axis. 
+As a side note, the plural of axis is axes, so when we get to X and Y axes I'm referring to either one axis or two axes. 
 
 Let's create the DataCircles component under `unfinished/app/components/DataCircles.jsx`
 
@@ -241,7 +241,7 @@ Let's open up `ScatterPlot.jsx` and add an `XYAxis` component
 
 ...
 
-var XYAxis      = require('./XYAxis');
+var XYAxes      = require('./XYAxes.jsx');
 
 var ScatterPlot = React.createClass({
   render: function() {
@@ -254,7 +254,7 @@ var ScatterPlot = React.createClass({
           xScale={xScale}
           yScale={yScale}
           {...props} />
-        <XYAxis
+        <XYAxes
           xScale={xScale}
           yScale={yScale}
           {...props} />
@@ -269,13 +269,13 @@ var ScatterPlot = React.createClass({
 module.exports = ScatterPlot;
 ```
 
-Now let's create the `XYAxis` component
+Now let's create the `XYAxes` component
 
 ```
 var React = require('react');
-var Axis  = require('./Axis');
+var Axis  = require('./Axis.jsx');
 
-var XYAxis = React.createClass({
+var XYAxes = React.createClass({
   render: function() {
     var props = this.props;
     var xSettings = {
@@ -289,7 +289,7 @@ var XYAxis = React.createClass({
       orient: 'left'
     };
     return (
-      <g className="xy-axis">
+      <g className="xy-axes">
         <Axis {...xSettings}/>
         <Axis {...ySettings}/>
       </g>
@@ -297,7 +297,7 @@ var XYAxis = React.createClass({
   }
 });
 
-module.exports = XYAxis;
+module.exports = XYAxes;
 ```
 
 For simplicity's sake, we're creating two objects which will hold the props for each of our X-Y Axis. Let's create an Axis component to explain what these props do. Go ahead and create `Axis.jsx`
@@ -323,8 +323,7 @@ var Axis = React.createClass({
   renderAxis: function() {
     var props = this.props;
     var node  = this.getDOMNode();
-    var scale = props.scale;
-    var axis = d3.svg.axis().orient(props.orient).ticks(5).scale(scale);
+    var axis = d3.svg.axis().orient(props.orient).ticks(5).scale(props.scale);
     d3.select(node).call(axis);
   }
 });
@@ -332,11 +331,11 @@ var Axis = React.createClass({
 module.exports = Axis;
 ```
 
-Our strategy up to this point is letting React exclusively handle the DOM. This is a good general rule, but we need to leave room for nuance. Sometimes thought we have to make compromises. In this case, the math and work we would have to do for rendering an axis is really complicated, and D3 has abstracted that pretty nicely, so we're going to get D3 have access to the DOM in this case. Also, since we're only going to render a maximum of 2 axis, the performance tradeoff is almost non-existant. 
+Our strategy up to this point is letting React exclusively handle the DOM. This is a good general rule, but we need to leave room for nuance. Sometimes thought we have to make compromises. In this case, the math and work we would have to do for rendering an axis is really complicated, and D3 has abstracted that pretty nicely, so we're going to let D3 have access to the DOM in this case. Also, since we're only going to render a maximum of 2 axis, the performance tradeoff is almost non-existant. 
 
-We're going to create a `g` element which we will hand over to D3 to do it's DOM manipulation. `transform` is an attribute of a `g`, which defines a list of transform definitions applied to an element and an element's children. We're passing in a `translate` attribute which will move the `g` element where we want it. SVG is similar to canvas in that x coordinates start at the top rather than at the bottom, so we have to account for this. Otherwise, our X-Axis would be right at the top of the chart. For the Y-Axis we want to leave some room for rendering the tickmark values.
+We're going to create a `g` element which we will hand over to D3 to do its DOM manipulation. `transform` is an attribute of a `g`, which defines a list of transform definitions applied to an element and an element's children. We're passing in a `translate` attribute which will move the `g` element where we want it. SVG is similar to canvas in that x coordinates start at the top rather than at the bottom, so we have to account for this. Otherwise, our X-Axis would be right at the top of the chart. For the Y-Axis we want to leave some room for rendering the tickmark values.
 
-Now if we take a look at the browser again, we can see the axis, and when we randomize the data they update automatically to reflect the data changes.
+Now if we take a look at the browser again, we can see the axes, and when we randomize the data they update automatically to reflect the data changes.
 
 ![Complete Chart Image](/images/complete_chart.png)
 
