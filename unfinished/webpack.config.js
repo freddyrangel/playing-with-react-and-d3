@@ -7,7 +7,7 @@ var TARGET    = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
 
 var common = {
-  entry: path.resolve(ROOT_PATH, 'app'),
+  entry: path.resolve(ROOT_PATH, 'src'),
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -20,7 +20,7 @@ var common = {
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
-        include: path.resolve(ROOT_PATH, 'app')
+        include: path.resolve(ROOT_PATH, 'src')
       }
     ]
   },
@@ -38,8 +38,12 @@ if (TARGET === 'start' || !TARGET) {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['react-hot', 'babel', 'eslint'],
-          include: path.resolve(ROOT_PATH, 'app')
+          include: path.resolve(ROOT_PATH, 'src'),
+          loaders: [
+            'react-hot',
+            'babel?presets[]=react,presets[]=es2015',
+            'eslint'
+         ]
         }
       ]
     },
@@ -48,7 +52,7 @@ if (TARGET === 'start' || !TARGET) {
       hot: true,
       inline: true,
       progress: true,
-      port: 4000
+      port: 8080
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
