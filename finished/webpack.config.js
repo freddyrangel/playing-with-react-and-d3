@@ -41,8 +41,7 @@ if (TARGET === 'start' || !TARGET) {
           include: path.resolve(ROOT_PATH, 'src'),
           loaders: [
             'react-hot',
-            'babel?presets[]=react,presets[]=es2015',
-            'eslint'
+            'babel?presets[]=react,presets[]=es2015'
          ]
         }
       ]

@@ -42,7 +42,6 @@ if (TARGET === 'start' || !TARGET) {
           loaders: [
             'react-hot',
             'babel?presets[]=react,presets[]=es2015',
-            'eslint'
          ]
         }
       ]
