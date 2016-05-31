@@ -118,13 +118,13 @@ export default class Chart extends React.Component{
 }
 ```
 
-Since we want our component to manage it's own state, we need to add a bit more code that our previous "Hello World" stateless functional component. Instead of just a function, we're going to extend `React.Component` and describe our component in the `render()` method. `render()` is the heart of any React component. It describes what our component is supposed to looks like. React will call `render()` on initial mount and on every state change.
+Since we want our component to manage it's own state, we need to add a bit more code to our previous "Hello World" stateless functional component. Instead of just a function, we're going to extend `React.Component` and describe our component in the `render()` method. `render()` is the heart of any React component. It describes what our component is supposed to look like. React will call `render()` on initial mount and on every state change.
 
-Inside of `render()` we are rendering a ScatterPlot component as if it were an HTML elemement, and setting some properties or "props". The `...` syntax is a convenient JSX and ES2015 spread operator that spread attributes of an array or object, instead of doing all of that explicitly. For more information check out: [JSX Spread Attributes](https://facebook.github.io/react/docs/jsx-spread.html). We're going to use it to pass it our data and a style object which will be used by some of our child components.
+Inside of `render()` we are rendering a ScatterPlot component as if it were an HTML elemement, and setting some properties or "props". The `...` syntax is a convenient JSX and ES2015 spread operator that spread attributes of an array or object, instead of doing all of that explicitly. For more information check out: [JSX Spread Attributes](https://facebook.github.io/react/docs/jsx-spread.html). We're going to use it to pass along our data and a style object which will be used by some of our child components.
 
-In addition, we're also rendering a button with a `onClick` event handler. We're going to wrap `this.randomizeData()` with an arrow function so we bind the value of `this` to our `Chart` component. When the button is clicked, `randomizeData()` will call `this.setState()` passing in some new data.
+In addition, we're also rendering a button with an `onClick` event handler. We're going to wrap `this.randomizeData()` with an arrow function so we bind the value of `this` to our `Chart` component. When the button is clicked, `randomizeData()` will call `this.setState()` passing in some new data.
 
-Let's talk about `this.setState()`. If `render()` is the heart of a React component, `setState()` is the brains of a component. `setState` explicitly tells React that we're changing some kind of state, triggering a re-render of the component and its children. This essentially turns out UI components into state machines.
+Let's talk about `this.setState()`. If `render()` is the heart of a React component, `setState()` is the brains of a component. `setState` explicitly tells React that we're changing some kind of state, triggering a re-render of the component and its children. This essentially turns our UI components into state machines.
 
 Inside of `setState()`, we're passing an object with `data` set to the `randomDataSet()`. This means that if we want to retrieve the state of out application, we only have to call `this.state.whateverStateWereLookingFor`. In this case, we can retrieve the randomData by calling `this.state.data`
 
@@ -278,7 +278,7 @@ export default class Axis extends React.Component {
 }
 ```
 
-Our strategy up to this point is letting React exclusively handle the DOM. This is a good general rule, but we need to leave room for nuance. Sometimes though we have to make compromises. In this case, the math and work we would have to do for rendering an axis is really complicated, and D3 has abstracted that pretty nicely, so we're going to get D3 have access to the DOM in this case. Also, since we're only going to render a maximum of 2 axis, the performance tradeoff is almost non-existant.
+Our strategy up to this point is letting React exclusively handle the DOM. This is a good general rule, but we need to leave room for nuance. Sometimes though we have to make compromises. In this case, the math and work we would have to do for rendering an axis is really complicated, and D3 has abstracted that pretty nicely, so we're going to let D3 have access to the DOM in this case. Also, since we're only going to render a maximum of 2 axis, the performance tradeoff is almost non-existant.
 
 We're going to create a `g` element which we will hand over to D3 to do it's DOM manipulation. `transform` is an attribute of a `g`, which defines a list of transform definitions applied to an element and an element's children. We're passing in a `translate` attribute which will move the `g` element where we want it. SVG is similar to canvas in that x coordinates start at the top rather than at the bottom, so we have to account for this. Otherwise, our X-Axis would be right at the top of the chart. For the Y-Axis we want to leave some room for rendering the tickmark values.
 
@@ -290,4 +290,4 @@ Now if we take a look at the browser again, we can see the axis, and when we ran
 
 ## Conclusion
 
-This is short introduction to React and D3. If you want to learn more about React, take a look at [React Under the Hood](https://gumroad.com/l/react-under-the-hood). To learn more about using React with D3, take a look at [React + D3.js](https://gumroad.com/l/react-under-the-hood).
+This was a short introduction to React and D3. If you want to learn more about React, take a look at [React Under the Hood](https://gumroad.com/l/react-under-the-hood). To learn more about using React with D3, take a look at [React + D3.js](https://gumroad.com/l/react-under-the-hood).
