@@ -290,4 +290,4 @@ Now if we take a look at the browser again, we can see the axis, and when we ran
 
 ## Conclusion
 
-This was a short introduction to React and D3. If you want to learn more about React, take a look at [React Under the Hood](https://gumroad.com/l/react-under-the-hood). To learn more about using React with D3, take a look at [React + D3.js](https://gumroad.com/l/react-under-the-hood).
+This was a short introduction to React and D3. If you want to learn more about React, take a look at [React Under the Hood](https://gumroad.com/l/react-under-the-hood). To learn more about using React with D3, take a look at [React + D3.js](http://swizec.com/reactd3js/).
