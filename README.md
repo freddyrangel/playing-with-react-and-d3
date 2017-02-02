@@ -253,7 +253,7 @@ export default (props) => {
 For simplicity's sake, we're creating two objects which will hold the props for each of our X-Y Axis. Let's create an Axis component to explain what these props do. Go ahead and create `axis.jsx`
 
 ```javascript
-// unfinished/src/components/x-y-axis.jsx
+// unfinished/src/components/axis.jsx
 import React from 'react';
 import d3    from 'd3';
 
