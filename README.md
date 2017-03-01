@@ -24,13 +24,13 @@ D3 essentially does 4 things: load data, bind data elements to the DOM via JavaS
 
 D3 is great at data visualizations, but it manipulates the DOM directly to display that data. Rendering DOM elements is where React shines. It uses a virtual representation of the DOM (virtual DOM) and uses a super performant diffing algorithm to determine the fastest way to update the DOM. We want to leverage React's highly efficient, declarative, and reusable components with D3's data utility functions. Also, once we create a chart component, we can reuse that chart with different data anywhere in our app.
 
-## How use React and D3?
+## How to use React and D3?
 
-D3, like React, is declarative. Unlike React, D3 used data binding, while React uses a uni-directional data flow paradigm. Getting them to work together takes a bit of work but the strategy is fairly simple: since SVG lives in the DOM, let React handle displaying SVG representations of the data, while letting D3 handle all the math required to render the data.
+D3, like React, is declarative. Unlike React, D3 uses data binding, while React uses a uni-directional data flow paradigm. Getting them to work together takes a bit of work but the strategy is fairly simple: since SVG lives in the DOM, let React handle displaying SVG representations of the data while letting D3 handle all the math required to render the data.
 
-Of course, we'll have to make compromises where necessary. React is really unopinionated and flexible, allowing you to do almost anything you need to do. Some things, like creating Axes, are very tedious to create. So we're going to let D3 directly access the DOM and create. It's pretty good axes and since we only need to create very few of those, won't ever become a performance problem.
+Of course, we'll have to make compromises where necessary. React is really unopinionated and flexible, allowing you to do almost anything you need to do. Some things, like creating Axes, are very tedious. So we're going to let D3 directly access the DOM and create them for us. D3 handles Axes well, and since we only need to create very few of them, it won't cause performance problems.
 
-We are going to go through a simple example of generating a random list of X-Y coordinates and displaying them on a ScatterPlot chart. If you're following the tutorial, a finished example is provided for you under the "finished" directory but you can follow along under "unfinished". I've gone through the trouble of doing all the setup for you. The build will automatically be created from "unfinished/src/index.jsx"
+We are going to go through a simple example of generating a random list of X-Y coordinates and displaying them on a ScatterPlot chart. If you're following the tutorial, a finished example is provided for you under the "finished" directory but you can follow along under the "unfinished" directory. I've gone through the trouble of doing all the setup for you. The build will automatically be created from "unfinished/src/index.jsx"
 
 Let's start by creating a simple "Hello World!" React component. Create a file under "components" named "chart.jsx"
 
@@ -87,12 +87,10 @@ const styles = {
 const numDataPoints = 50;
 
 // A function that returns a random number from 0 to 1000
-const randomNum     = () => Math.floor(Math.random() * 1000);
+const randomNum = () => Math.floor(Math.random() * 1000);
 
 // A function that creates an array of 50 elements of (x, y) coordinates.
-const randomDataSet = () => {
-  return Array.apply(null, {length: numDataPoints}).map(() => [randomNum(), randomNum()]);
-}
+const randomDataSet = () => Array.apply(null, {length: numDataPoints}).map(() => [randomNum(), randomNum()]);
 
 export default class Chart extends React.Component{
   constructor(props) {
