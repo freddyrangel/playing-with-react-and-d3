@@ -1,0 +1,554 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"time",
+				"timeParse"
+			],
+			[
+				"Re",
+				"ReStock"
+			],
+			[
+				"s",
+				"state"
+			],
+			[
+				"pro",
+				"prop"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"eve",
+				"eventEmitter"
+			],
+			[
+				"ma",
+				"main\tmain()"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "unfinished/src/main.css",
+			"settings":
+			{
+				"buffer_size": 326,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "unfinished/package.json",
+			"settings":
+			{
+				"buffer_size": 1934,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pr",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"dele",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"isn",
+				"Package Control: Install Package"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"virt",
+				"Virtualenv: Activate"
+			],
+			[
+				"v",
+				"Virtualenv: Deactivate"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"env",
+				"Virtualenv: Deactivate"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"vir",
+				"Virtualenv: Activate"
+			],
+			[
+				"sour",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 248.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jvr23/Documents/REACT/playing-with-react-and-d3",
+		"/Users/jvr23/Documents/REACT/playing-with-react-and-d3/unfinished",
+		"/Users/jvr23/Documents/REACT/playing-with-react-and-d3/unfinished/src"
+	],
+	"file_history":
+	[
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/jvr23/Documents/REACT/playing-with-react-and-d3/.gitignore",
+		"/Volumes/untitled/KnowledgeBase/address.txt",
+		"/Volumes/untitled/KnowledgeBase/multisig_txs.txt",
+		"/Users/jvr23/Documents/REACT/crypticks/notes.txt",
+		"/Users/jvr23/Documents/REACT/crypticks/.eslintrc",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/User/JsPrettier.sublime-settings",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/JsPrettier/JsPrettier.sublime-settings",
+		"/Users/jvr23/Documents/REACT/crypticks/src/App.js",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/User/ESLint.sublime-settings",
+		"/Users/jvr23/Documents/REACT/crypticks/src/App.css",
+		"/Users/jvr23/Desktop/lecture_plan.txt",
+		"/Users/jvr23/Desktop/notes.txt",
+		"/Users/jvr23/Documents/REACT/learnJSdata/public/index.html",
+		"/Users/jvr23/Documents/D3/learning-d3-v4/webpack.config.js",
+		"/Users/jvr23/Documents/D3/learning-d3-v4/data/EU-referendum-result-data.csv",
+		"/Users/jvr23/Documents/D3/d3-projects/webpack.config.js",
+		"/Users/jvr23/Documents/D3/d3-projects/package.json",
+		"/Users/jvr23/Documents/D3/d3-projects/index.html",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/CandleStickStockScaleChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/areaChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/CandleStickChartWithZoomPan.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/AreaChartWithEdge.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/HorizontalStackedBarChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/HorizontalBarChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/lineAndScatterChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/StackedBarChart.jsx",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/groupedBar.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/barChart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/bubbleChart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/areaChart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/lineAndScatterChart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/BCHARTS-BITSTAMPUSD.csv",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/test.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/App.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/node_modules/d3-array/src/min.js",
+		"/Users/jvr23/Desktop/temp_ec2_pass",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/helpers.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/testChart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/test.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/barchart.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/temp.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/src/App.test.js",
+		"/Users/jvr23/Documents/REACT/reactStockCharts/reactStockCharts.sublime-project",
+		"/Users/jvr23/Documents/REACT/routing/basics/src/App.css",
+		"/Users/jvr23/Documents/REACT/routing/basics/tests/e2e/e2e.test.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/src/App.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/src/Client.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/src/FoodSearch.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/tests/FoodSearch.test.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/tests/complete/FoodSearch.test.complete-1.js",
+		"/Users/jvr23/Documents/REACT/webpack/food-lookup-complete/client/tests/App.test.js",
+		"/Users/jvr23/Documents/REACT/testing/react-basics/src/App.js",
+		"/Users/jvr23/Documents/REACT/testing/react-basics/src/App.test.js",
+		"/Users/jvr23/Documents/PYTHON/collectors/logs/synchronizer.log",
+		"/Users/jvr23/Documents/PYTHON/collectors/logs/sync_records_test_queries",
+		"/Users/jvr23/Documents/PYTHON/collectors/utils/influx-schema.txt",
+		"/Users/jvr23/ownCloud/VersionedNotes/SHARE/InfluxDB/EC2_retention_policy_queries.txt",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/Color Scheme - Default/Monokai.tmTheme",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/HTML/Miscellaneous.tmPreferences",
+		"/Users/jvr23/Documents/REACT/learning_react/test.html",
+		"/Users/jvr23/Library/Application Support/Sublime Text 3/Packages/HTML/HTML.sublime-syntax",
+		"/Users/jvr23/Documents/reactApp/my_app/src/index.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"no-labe",
+			"format",
+			"token",
+			"ticks_ETHUSD",
+			"ticks_ETHBTC",
+			"ticks_BTCUSD",
+			"ticks_BTCEUR",
+			"book_ETHUSD",
+			"book_ETHBTC",
+			"book_BTCUSD",
+			"book_BTCEUR",
+			"ticks_BTCZEC",
+			"ticks_BTCXMR",
+			"ticks_BTCETH",
+			"ticks_BTCETC",
+			"ticks_BTCDASH",
+			"book_BTCZEC",
+			"book_BTCXMR",
+			"book_BTCETH",
+			"book_BTCETC",
+			"book_BTCDASH",
+			"ticks_ZECXBT",
+			"ticks_ZECUSD",
+			"ticks_ZECEUR",
+			"ticks_XMRUSD",
+			"ticks_XMREUR",
+			"ticks_XMRBTC",
+			"ticks_ETHUSD",
+			"ticks_ETHBTC",
+			"ticks_DASHUSD",
+			"ticks_DASHBTC",
+			"ticks_BTCUSD",
+			"ticks_BTCEUR",
+			"book_ZECXBT",
+			"book_ZECUSD",
+			"book_ZECEUR",
+			"book_XMRUSD",
+			"book_XMREUR",
+			"book_XMRBTC",
+			"book_ETHUSD",
+			"book_ETHEUR",
+			"book_ETHBTC",
+			"book_DASHUSD",
+			"book_DASHBTC",
+			"book_BTCUSD",
+			"book_BTCEUR",
+			"ticks_DSHUSD",
+			"ticks_XMRBTC",
+			"ticks_XMRUSD",
+			"ticks_ZECBTC",
+			"ticks_ZECUSD",
+			"ticks_ETCBTC",
+			"ticks_ETCUSD",
+			"ticks_ETHBTC",
+			"ticks_ETHUSD",
+			"ticks_BTCUSD",
+			"book_DASHBTC",
+			"book_DASHUSD",
+			"book_XMRBTC",
+			"book_XMRUSD",
+			"book_ZECBTC",
+			"book_ZECUSD",
+			"book_ETCBTC",
+			"book_ETCUSD",
+			"book_ETHBTC",
+			"book_ETHUSD",
+			"book_BTCUSD",
+			"ticks_BTCUSD",
+			"ticks_BTCEUR",
+			"book_BTCEUR",
+			"ticks_BTCCNY",
+			"ticks_BTCUSD",
+			"book_BTCCNY",
+			"book_BTCUSD",
+			"ticks_BTCUSD",
+			"book_BTCCNY",
+			"\\\\n",
+			"1492527900000000000",
+			"ticks",
+			"USD",
+			"required",
+			"”",
+			"“",
+			"'",
+			"”",
+			"“",
+			"\"",
+			"[\"](.)+[\"]",
+			"\"",
+			"JSON",
+			"\\\"",
+			"\"",
+			"commen"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n",
+			"book",
+			"BTC",
+			"REQUIRED",
+			"\"",
+			"",
+			"\"",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "unfinished/src/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 326,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								326,
+								326
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "unfinished/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1934,
+								1934
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 126.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 198.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/node.sublime-build",
+	"project": "playing-with-react-and-d3.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"app.te",
+				"src/App.test.js"
+			],
+			[
+				"app",
+				"src/App.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/REACT/react-orderbook/react-orderbook.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 199.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

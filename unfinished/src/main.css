@@ -10,8 +10,8 @@ svg {
 .axis path,
 .axis line {
   fill: none;
-  stroke: black;
   shape-rendering: crispEdges;
+  stroke: black;
 }
 
 .axis text {
@@ -20,7 +20,7 @@ svg {
 }
 
 .controls button {
+  background-color: 'aquawhite';
   display: block;
   margin: 4em auto 4em auto;
-  background-color: 'aquawhite';
 }
