@@ -7,18 +7,6 @@ svg {
   margin: auto;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  shape-rendering: crispEdges;
-  stroke: black;
-}
-
-.axis text {
-  font-family: sans-serif;
-  font-size: 11px;
-}
-
 .controls button {
   background-color: 'aquawhite';
   display: block;
