@@ -182,8 +182,6 @@ const ScatterPlot = props => {
   return (
     <svg width={props.width} height={props.height}>
       <DataCircles {...props} {...scales} />
-      <Axis ax={'x'} {...props} {...scales} />
-      <Axis ax={'y'} {...props} {...scales} />
     </svg>
   );
 };
