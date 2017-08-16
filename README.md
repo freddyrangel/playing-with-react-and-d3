@@ -1,4 +1,12 @@
-# Playing With React and D3
+# Playing With React and D3v4
+
+	------------
+	Fork notice
+	------------
+		
+	Original tutorial compatible with d3v3 can be found in d3v3 branch.
+	Current master branch is refactored original code compatible with d3v4.
+
 
 At this point, we can now safely say [React](https://facebook.github.io/react/) is the preferred JavaScript library for building user interfaces. It is used practically everywhere, rivaling the level of ubiquity of [jQuery](https://jquery.com/). It has an API that is simple, powerful, and easy to learn. Its performance characteristics are really impressive thanks to the Virtual DOM and its clever [diff algorithm](https://facebook.github.io/react/docs/reconciliation.html) between state changes. However, nothing is the promised land and React is no different. While one of React's strengths is the easy of integrating third-party libaries, certain libraries are more difficult to integrate than others, especially opinionated libraries.
 
@@ -36,7 +44,7 @@ Let's start by creating a simple "Hello World!" React component. Create a file u
 
 ```javascript
 // unfinished/src/components/chart.jsx
-import React from 'react';
+import React, { Component } from 'react';
 
 export default (props) => {
   return <h1>Hello, World!</h1>;
@@ -52,14 +60,14 @@ Now let's move on and mount our component to the DOM. Open up "index.jsx"
 ```javascript
 // unfinished/src/index.jsx
 import './main.css';
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart    from './components/chart.jsx';
+import Chart from './components/chart.jsx';
 
 const mountingPoint = document.createElement('div');
 mountingPoint.className = 'react-app';
 document.body.appendChild(mountingPoint);
-ReactDOM.render(<Chart/>, mountingPoint);
+ReactDOM.render(<Chart />, mountingPoint);
 ```
 
 You may have noticed a few things. You might be wondering why we're requiring a CSS file. We're using Webpack, which allows us to require CSS files. This is really useful when we need to modularize our stylesheets as well as our JavaScript. We're also creating a div in which we want to mount our React app. That's just a good practice just in case you want to do other things on the page other than render a React component. Lastly, we're calling `render` on ReactDOM with 2 arguments, the name of the component and the DOM element we want to mount it on.
@@ -74,27 +82,27 @@ We're going to create some functions that will create an array of random data po
 
 ```javascript
 // unfinished/src/components/chart.jsx
-import React       from 'react';
+import React, { Component } from 'react';
 import ScatterPlot from './scatter-plot';
 
 const styles = {
-  width   : 500,
-  height  : 300,
-  padding : 30,
+  width: 500,
+  height: 300,
+  padding: 30
 };
 
 // The number of data points for the chart.
 const numDataPoints = 50;
 
-// A function that returns a random number from 0 to 1000
-const randomNum     = () => Math.floor(Math.random() * 1000);
+// A function that returns a random number from 0 to 1000.
+const randomNum = () => Math.floor(Math.random() * 1000);
 
 // A function that creates an array of 50 elements of (x, y) coordinates.
 const randomDataSet = () => {
-  return Array.apply(null, {length: numDataPoints}).map(() => [randomNum(), randomNum()]);
-}
+  return Array.from(Array(numDataPoints)).map(() => [randomNum(), randomNum()]);
+};
 
-export default class Chart extends React.Component{
+export default class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = { data: randomDataSet() };
@@ -105,17 +113,23 @@ export default class Chart extends React.Component{
   }
 
   render() {
-    return <div>
-      <h1>Playing With React and D3</h1>
-      <ScatterPlot {...this.state} {...styles} />
-      <div className="controls">
-        <button className="btn randomize" onClick={() => this.randomizeData()}>
-          Randomize Data
-        </button>
+    return (
+      <div>
+        <h1>Playing With React and D3v4</h1>
+        <ScatterPlot {...this.state} {...styles} />
+        <div className="controls">
+          <button
+            className="btn randomize"
+            onClick={() => this.randomizeData()}
+          >
+            Randomize Data
+          </button>
+        </div>
       </div>
-    </div>
+    );
   }
 }
+
 ```
 
 Since we want our component to manage it's own state, we need to add a bit more code to our previous "Hello World" stateless functional component. Instead of just a function, we're going to extend `React.Component` and describe our component in the `render()` method. `render()` is the heart of any React component. It describes what our component is supposed to look like. React will call `render()` on initial mount and on every state change.
@@ -130,47 +144,56 @@ Inside of `setState()`, we're passing an object with `data` set to the `randomDa
 
 A little side note about how React works: React offers great performance for rendering UI components by implementing a diff algorithm, comparing a virtual DOM in memory with the actual DOM. When you think about it, the DOM is really a large tree structure. If there's one thing we learned from decades of computer science research, it's how to compare and manipulate trees. React takes advantage of clever tree diffing algorithms, but in order for it to work, each component can only render one parent element (meaning that you cannot render sibling elements). That's why In the render function we're wrapping all our elements in one parent div.
 
-Let's get started with the ScatterPlot component. Create a file `unfinished/src/components/scatter-plot.jsx` :
+Let's get started with the ScatterPlot component. Create a file 
+`unfinished/src/components/scatter-plot.jsx` :
 
 ```javascript
 // unfinished/src/components/scatter-plot.jsx
-import React        from 'react';
-import d3           from 'd3';
-import DataCircles  from './data-circles';
+import React from 'react';
+import * as d3 from 'd3';
+import DataCircles from './data-circles';
+import Axis from './axis';
 
-// Returns the largest X coordinate from the data set
-const xMax   = (data)  => d3.max(data, (d) => d[0]);
+// Returns the largest X coordinate from the data set.
+const xMax = data => d3.max(data, d => d[0]);
 
-// Returns the higest Y coordinate from the data set
-const yMax   = (data)  => d3.max(data, (d) => d[1]);
+// Returns the higest Y coordinate from the data set.
+const yMax = data => d3.max(data, d => d[1]);
 
-// Returns a function that "scales" X coordinates from the data to fit the chart
-const xScale = (props) => {
-  return d3.scale.linear()
+// Returns a function that "scales" X coordinates from the data to fit the chart.
+const xScale = props => {
+  return d3
+    .scaleLinear()
     .domain([0, xMax(props.data)])
     .range([props.padding, props.width - props.padding * 2]);
 };
 
-// Returns a function that "scales" Y coordinates from the data to fit the chart
-const yScale = (props) => {
-  return d3.scale.linear()
+// Returns a function that "scales" Y coordinates from the data to fit the chart.
+const yScale = props => {
+  return d3
+    .scaleLinear()
     .domain([0, yMax(props.data)])
     .range([props.height - props.padding, props.padding]);
 };
 
-export default (props) => {
+const ScatterPlot = props => {
   const scales = { xScale: xScale(props), yScale: yScale(props) };
-  return <svg width={props.width} height={props.height}>
-    <DataCircles {...props} {...scales} />
-  </svg>
-}
+
+  return (
+    <svg width={props.width} height={props.height}>
+      <DataCircles {...props} {...scales} />
+    </svg>
+  );
+};
+
+export default ScatterPlot;
 ```
 
 There's a lot going on here so let's start with the stateless functional component we're exporting. D3 uses SVG to render data visualizations. D3 has special methods for creating SVG elements and binding data to those elements. However, we're going to let React handle that. We're creating an SVG element with the properties passed in by the `Chart` component, which can be accessed via `this.props`. Then we're creating a `DataCircles` component (we're going to create in a minute) which will render the points for the scatter plot.
 
 Let's talk about D3 scales. This is where D3 shines. Scales take care of doing all the messy math converting your data into a format that can be displayed on a chart. If you have a data point value 189281 but your chart is only 200 pixels wide, D3 scales will convert that number to a number you can use to plot that point.
 
-`d3.scale.linear()` returns a linear scale. D3 also supports other types of scales: ordinal, logarithmic, square root, etc.. We won't be talking about those here. `domain` is short for an "input domain", meaning the range of possible input values. It takes an array of the smallest input value possible and the maximum input value. `range` is the "output range" which is the range of possible output values. So in `domain`, we're setting the range of possible data values from our random data, and in `range` we're telling D3 the range of our chart. `d3.max` is a d3 method for determining the maximum value of a dataset. It can take a function which  D3 will use to give the max values of the X and Y coordinates.
+`d3.scaleLinear()` returns a linear scale. D3 also supports other types of scales: ordinal, logarithmic, square root, etc.. We won't be talking about those here. `domain` is short for an "input domain", meaning the range of possible input values. It takes an array of the smallest input value possible and the maximum input value. `range` is the "output range" which is the range of possible output values. So in `domain`, we're setting the range of possible data values from our random data, and in `range` we're telling D3 the range of our chart. `d3.max` is a d3 method for determining the maximum value of a dataset. It can take a function which D3 will use to give the max values of the X and Y coordinates.
 
 We will be using the scales for rendering the data circles and our axes.
 
@@ -180,21 +203,23 @@ Let's create the DataCircles component under `unfinished/src/components/data-cir
 // unfinished/src/components/data-circles.jsx
 import React from 'react';
 
-const renderCircles = (props) => {
+const renderCircles = props => {
   return (coords, index) => {
     const circleProps = {
       cx: props.xScale(coords[0]),
       cy: props.yScale(coords[1]),
-      r: 2,
+      r: 3,
       key: index
     };
     return <circle {...circleProps} />;
   };
 };
 
-export default (props) => {
-  return <g>{ props.data.map(renderCircles(props)) }</g>
-}
+const DataCircles = props => {
+  return <g>{props.data.map(renderCircles(props))}</g>;
+};
+
+export default DataCircles;
 ```
 
 In this component, we're rendering a `g` element, which is like the SVG equivalent to a `div`. Since we want to render a point for every set of X-Y coordinates, we're going to render multiple sibling elements, so we're wrapping it all in a `g` element for React to work. Inside of `g`, we're mapping over the data and rendering a circle for each one using `renderCircles`. `renderCircles` creates an SVG `circle` element which takes a number of properties. Here's we're setting the x and y coordinates (`cx` and `cy` respectively) with the D3 scales passed in from the ScatterPlot component. `r` is the radius of our circle, and key is something React requires us to do. Since we're rendering identical sibling components, React's diffing algorithm needs some kind of way to keep track of them as it updates the DOM over and over. You can use any key you like, as long as it's unique to the list. Here we're just going to use the index of each element.
@@ -205,59 +230,40 @@ Now when we look at our browser we see this:
 
 Now we can see our random data and randomize that data via user input. Awesome! But we're missing some way to read this data. What we need are axis. Let's create them now.
 
-Let's open up `ScatterPlot.jsx` and add an `XYAxis` component
+Let's open up `ScatterPlot.jsx` and add an `Axis` component
 
 ```javascript
 // unfinished/src/components/scatter-plot.jsx
 
 // ...
 
-import XYAxis       from './x-y-axis';
+import Axis from './axis';
 
 // ...
 
-export default (props) => {
+const ScatterPlot = props => {
   const scales = { xScale: xScale(props), yScale: yScale(props) };
-  return <svg width={props.width} height={props.height}>
-    <DataCircles {...props} {...scales} />
-    <XYAxis {...props} {...scales} />
-  </svg>
-}
+
+  return (
+    <svg width={props.width} height={props.height}>
+      <DataCircles {...props} {...scales} />
+      <Axis ax={'x'} {...props} {...scales} />
+      <Axis ax={'y'} {...props} {...scales} />
+    </svg>
+  );
+};
+
+export default ScatterPlot;
 ```
 
-Now let's create the `XYAxis` component;
+Let's create an Axis component. Go ahead and create `axis.jsx`
 
 ```javascript
-// unfinished/src/components/x-y-axis.jsx
-import React  from 'react';
-import Axis   from './axis';
+// unfinished/src/components/axis.jsx
+import React, { Component } from 'react';
+import * as d3 from 'd3';
 
-export default (props) => {
-  const xSettings = {
-    translate: `translate(0, ${props.height - props.padding})`,
-    scale: props.xScale,
-    orient: 'bottom'
-  };
-  const ySettings = {
-    translate: `translate(${props.padding}, 0)`,
-    scale: props.yScale,
-    orient: 'left'
-  };
-  return <g className="xy-axis">
-    <Axis {...xSettings}/>
-    <Axis {...ySettings}/>
-  </g>
-}
-```
-
-For simplicity's sake, we're creating two objects which will hold the props for each of our X-Y Axis. Let's create an Axis component to explain what these props do. Go ahead and create `axis.jsx`
-
-```javascript
-// unfinished/src/components/x-y-axis.jsx
-import React from 'react';
-import d3    from 'd3';
-
-export default class Axis extends React.Component {
+export default class Axis extends Component {
   componentDidMount() {
     this.renderAxis();
   }
@@ -267,13 +273,28 @@ export default class Axis extends React.Component {
   }
 
   renderAxis() {
-    var node  = this.refs.axis;
-    var axis = d3.svg.axis().orient(this.props.orient).ticks(5).scale(this.props.scale);
+    if (this.props.ax === 'x') {
+      var axis = d3.axisBottom(this.props.xScale).ticks(5);
+    } else if (this.props.ax === 'y') {
+      var axis = d3.axisLeft(this.props.yScale).ticks(5);
+    }
+
+    var node = this.refs.axis;
     d3.select(node).call(axis);
   }
 
   render() {
-    return <g className="axis" ref="axis" transform={this.props.translate}></g>
+    return (
+      <g
+        className={this.props.ax === 'x' ? 'xAxis' : 'yAxis'}
+        ref="axis"
+        transform={
+          this.props.ax === 'x'
+            ? `translate(0, ${this.props.height - this.props.padding})`
+            : `translate(${this.props.padding}, 0)`
+        }
+      />
+    );
   }
 }
 ```
@@ -291,3 +312,13 @@ Now if we take a look at the browser again, we can see the axis, and when we ran
 ## Conclusion
 
 This was a short introduction to React and D3. If you want to learn more about React, take a look at [React Under the Hood](https://gumroad.com/l/react-under-the-hood). To learn more about using React with D3, take a look at [React + D3.js](http://swizec.com/reactd3js/).
+
+## TODO
+
+* Fix deprecated modules.
+
+		npm WARN deprecated jade@0.26.3: Jade has been renamed to pug, please install the latest version of pug instead of jade
+		npm WARN deprecated to-iso-string@0.0.2: to-iso-string has been deprecated, use @segment/to-iso-string instead.
+		npm WARN deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+		
+* Fix npm test.

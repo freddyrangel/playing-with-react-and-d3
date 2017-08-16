@@ -1,9 +1,9 @@
-var path              = require('path');
+var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
-var webpack           = require('webpack');
-var merge             = require('webpack-merge');
+var webpack = require('webpack');
+var merge = require('webpack-merge');
 
-var TARGET    = process.env.npm_lifecycle_event;
+var TARGET = process.env.npm_lifecycle_event;
 var ROOT_PATH = path.resolve(__dirname);
 
 var common = {
@@ -26,7 +26,7 @@ var common = {
   },
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'Playing With React and D3'
+      title: 'Playing With React and D3v4'
     })
   ]
 };
@@ -39,10 +39,7 @@ if (TARGET === 'start' || !TARGET) {
         {
           test: /\.jsx?$/,
           include: path.resolve(ROOT_PATH, 'src'),
-          loaders: [
-            'react-hot',
-            'babel?presets[]=react,presets[]=es2015'
-         ]
+          loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
         }
       ]
     },
@@ -53,9 +50,6 @@ if (TARGET === 'start' || !TARGET) {
       progress: true,
       port: 8080
     },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
-  })
+    plugins: [new webpack.HotModuleReplacementPlugin()]
+  });
 }
-
